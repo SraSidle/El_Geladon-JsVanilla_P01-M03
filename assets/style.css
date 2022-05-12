@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Akshar:wght@300;400;500;600;700&family=Exo+2:ital,wght@0,100;0,200;0,300;1,100;1,200;1,300&family=Great+Vibes&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:wght@500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Exo, sans-serif;
+}
+
+body,
+html {
+  min-height: 100vh;
+  width: 100%;
+  overflow: auto;
+  background-color: #ffffff;
+}
+
+.Home {
+  position: relative;
+  background-image: radial-gradient(
+    farthest-corner at 2.5rem 2.5rem,
+    #50c5ee 60%,
+    #00d4ff80 100%
+  );
+  min-height: calc(100vh - 60px);
+  margin: 15px;
+  padding: 15px;
+  border-radius: 20px;
+  color: black;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+}
+
+.Home h2 {
+  display: flex;
+  justify-content: center;
+}
+
+.Home_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 350px) {
+  .Home_container {
+    justify-content: unset;
+  }
+}
+
+.PaletaLista {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1.5rem 3rem;
+}
+
+@media (max-width: 1220px) {
+  .PaletaLista {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 840px) {
+  .PaletaLista {
+    grid-template-columns: 1fr;
+  }
+}
+
+.PaletaCardItem,
+.PaletaListaItem {
+  background: #ffffff4d;
+  border-radius: 0.6rem;
+  padding: 0.6rem;
+  width: 19rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.PaletaCardItem {
+  /*será inserido posteriormente*/
+  margin: 1.2rem 0;
+  height: 9rem;
+  width: auto;
+}
+
+@media (max-width: 400px) {
+  .PaletaCardItem,
+  .PaletaListaItem {
+    width: 210px;
+    height: 180px;
+  }
+}
+
+.PaletaCardItem > div,
+.PaletaListaItem > div {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.PaletaCardItem_sabor,
+.PaletaListaItem_sabor {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 100%;
+}
+
+.PaletaCardItem_descricao,
+.PaletaListaItem_descricao {
+  font-size: 0.85em;
+}
+
+.PaletaCardItem_Preco,
+.PaletaListaItem_Preco {
+  color: #9400d3;
+}
+
+.PaletaListaItem_foto {
+    height: 10rem;
+    margin-right: -4rem;
+}
