@@ -38,6 +38,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 2rem;
 }
 
 @media (max-width: 350px) {
@@ -117,3 +118,138 @@ html {
     height: 10rem;
     margin-right: -4rem;
 }
+
+.PaletaCardItem {
+  margin: 20px 0;
+  height: 100%;
+  width: 100%;
+
+}
+
+.paleta-escolhida-espaco {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+#idPaleta{
+  padding: .5rem;
+  width: 100%;
+  border: none;
+  border-radius: .2rem;
+}
+
+#idPaletaButton {
+  background-color: transparent;
+  border: 1px solid #9400d3;
+  padding: 0.4rem;
+  color: #9400d3;
+  font-weight: 600;
+  border-radius: 0.2rem;
+  width: 320px;
+  margin-top: .5rem;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+
+#idPaletaButton:hover {
+  background-color: #9400d3;
+  color: #ffffff;
+}
+
+#paleta-escolhida-input-espaco {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 320px;
+}
+
+.Header {
+  max-width: 1110px;
+  margin: 0 auto 25px auto;
+  position: relative;
+}
+
+.row{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin: 20px 0 35px 0;
+}
+
+.Logo {
+  display: flex;
+  align-items: center;
+  border-radius: .6rem;
+  background-color: #ffffff4d;
+  width: 340px;
+  height: 45px;
+}
+
+.Logo__titulo {
+  position: absolute;
+  left: 55px;
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+
+.Logo__icone {
+  position: absolute;
+  left: -20px;
+  top: -15px;
+}
+
+.Sacola {
+  position: relative;
+}
+
+.Sacola__icone {
+  cursor: pointer;
+}
+
+/* .Sacola__badge {
+  background-color: red;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  vertical-align: niddle;
+  position: absolute;
+  color: white;
+  font-size: .9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  bottom: 0;
+  right: 0;
+} */
+
+@media (max-width: 1220px) {
+  .Header {
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 840px) {
+  .Header {
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 400px) {
+  .Header {
+    max-width: 250px;
+
+  }
+
+  .row {
+    column-gap: 20px;
+  }
+
+  .Logo__titulo {
+    font-size: 1.5rem;
+  }
+}
+
+

@@ -9,6 +9,42 @@
   </head>
   <body>
     <section class="Home">
+      <div class="Home__header Header">
+        <div class="row">
+          <div class="Header__logo Logo">
+            <img
+              src="assets/images/logo.svg"
+              width="70px"
+              alt="Logo El Geladon"
+              class="Logo__icone"
+            />
+            <span class="Logo__titulo"> El Geladon </span>
+          </div>
+
+          <div class="Header__opcoes Opcoes">
+            <div class="Opcoes__sacola Sacola">
+              <img
+                src="assets/images/icons/sacola.svg"
+                width="40px"
+                class="Sacola__icone"
+                alt="Sacola de compras"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2>Pesquisar Paleta</h2>
+      <div class="paleta-escolhida-espaco">
+          <div id="paleta-escolhida-input-espaco">
+              <input type="number" id="idPaleta" placeholder="Digite o ID da paleta e clique em 'Escolher'"/>
+              <button id="idPaletaButton" onclick="findPaletaById()">ESCOLHER</button>
+          </div>
+          <div id="paletaEscolhida">
+
+          </div>
+      </div>
+      
+      </div>
       <h2>Available Palettes</h2>
       <div class="Home_container">
         <div class="PaletaLista" id="paletaList">
