@@ -83,17 +83,32 @@ async function createPaleta() {
 
   const novaPaleta = await response.json();
 
-  const html = `<div class="PaletaListaItem">
-  <div>
-    <div class="PaletaListaItem__sabor">${novaPaleta.sabor}</div>
-    <div class="PaletaListaItem__preco">R$ ${novaPaleta.preco.toFixed(2)}</div>
-    <div class="PaletaListaItem__descricao">${novaPaleta.descricao}</div>
-  </div>
-    <img class="PaletaListaItem__foto" src=${
-      novaPaleta.foto
-    } alt=${`Paleta de ${novaPaleta.sabor}`} />
+  const html = `<div class="PaletaListaItem" id="PaletaListaItem_${
+    novaPaleta.id
+  }">
+  
+      <div class="PaletaListaItem__sabor">${novaPaleta.sabor}</div>
+      <div class="PaletaListaItem__preco">R$ ${novaPaleta.preco.toFixed(
+        2
+      )}</div>
+      <div class="PaletaListaItem__descricao">${novaPaleta.descricao}</div>
+
+      <div class="PaletaListaItem__acoes Acoes">
+        <button class="Acoes__editar" onclick="editPaleta(${
+          novaPaleta.id
+        })">editar</button>
+        <button class="Acoes__deletar" onclick="deletePaleta(${
+          novaPaleta.id
+        })">deletar</button>
+      </div>
+  
+    </div>
+      <img class="PaletaListaItem__foto" src=${
+        novaPaleta.foto
+      } alt=${`Paleta de ${novaPaleta.sabor}`} />
   </div>`;
 
   document.getElementById("paletaList").insertAdjacentHTML("beforeend", html);
+
   fecharModalCadastro();
-}
+};
