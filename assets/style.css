@@ -115,15 +115,14 @@ html {
 }
 
 .PaletaListaItem_foto {
-    height: 10rem;
-    margin-right: -4rem;
+  height: 10rem;
+  margin-right: -4rem;
 }
 
 .PaletaCardItem {
   margin: 20px 0;
   height: 100%;
   width: 100%;
-
 }
 
 .paleta-escolhida-espaco {
@@ -133,14 +132,14 @@ html {
   padding: 2rem;
 }
 
-#idPaleta{
-  padding: .5rem;
+#idPaleta {
+  padding: 0.5rem;
   width: 100%;
   border: none;
-  border-radius: .2rem;
+  border-radius: 0.2rem;
 }
 
-#idPaletaButton {
+.defaut-button {
   background-color: transparent;
   border: 1px solid #9400d3;
   padding: 0.4rem;
@@ -148,12 +147,12 @@ html {
   font-weight: 600;
   border-radius: 0.2rem;
   width: 320px;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   cursor: pointer;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
-#idPaletaButton:hover {
+.defaut-button:hover {
   background-color: #9400d3;
   color: #ffffff;
 }
@@ -171,7 +170,7 @@ html {
   position: relative;
 }
 
-.row{
+.row {
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -181,7 +180,7 @@ html {
 .Logo {
   display: flex;
   align-items: center;
-  border-radius: .6rem;
+  border-radius: 0.6rem;
   background-color: #ffffff4d;
   width: 340px;
   height: 45px;
@@ -240,7 +239,6 @@ html {
 @media (max-width: 400px) {
   .Header {
     max-width: 250px;
-
   }
 
   .row {
@@ -252,4 +250,97 @@ html {
   }
 }
 
+.modal-overlay {
+  background-color: #00000050;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+}
 
+.modal {
+  margin: 1rem;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  min-height: 300px;
+  background-color: #fff;
+  border-radius: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-image: radial-gradient(
+    farthest-corner at 2.5rem 2.5rem,
+    #50c5ee 60%,
+    #00d4ff80 100%
+  );
+  padding: 1rem;
+}
+
+.close-modal{
+  text-decoration: none;
+  color: #000000;
+  font-size: 1rem;
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.close-modal:hover {
+  transform: scale(1) rotate(180deg);
+}
+
+.button-modal-create{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-body{
+  padding: .5rem 1rem;
+}
+
+.modal-body form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-body form input, textarea{
+  width: 100%;
+  padding: .5rem;
+  font-size: .8rem;
+  outline: none;
+  border: solid 1px #ccc;
+  margin-bottom: .4rem;
+  border-radius: .3rem;
+}
+
+.modal-body form button{
+  padding: .5rem;
+  width: 30%;
+  font-size: 1rem;
+  background-color: transparent;
+  color: #00749e;
+  border: solid 1px #00749e;
+  border-radius: .3rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.modal-body form button:hover{
+  background-color: #0097ce;
+  color: #fff;
+}
