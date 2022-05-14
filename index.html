@@ -33,11 +33,35 @@
           </div>
         </div>
       </div>
+      
+      <section class="button-modal-create">
+        <button type="button" onclick="abrirModalCadastro()" class="defaut-button"> Cadastrar Paleta</button>
+      </section>
+
+      <section  class="modal-overlay" id="overlay">
+        <div class="modal">
+          <div class="modal-header">
+             <h2>Cadastrar uma Paleta</h2>
+             <a class="close-modal" onclick="fecharModalCadastro()">X</a>
+          </div>
+         
+          <div class="modal-body">
+           <form action="">
+             <input type="text" name="sabor" id="sabor" placeholder="Sabor da Paleta">
+             <input type="text" name="preco" id="sabor" placeholder="Preço da Paleta">
+             <textarea type="text" name="descricao" id="descricao" placeholder="Descrição da Paleta" rows="5"></textarea>
+             <input type="text" name="foto" id="foto" placeholder="Link da Foto da Paleta"> 
+             <button type="submit">Cadastrar</button>
+           </form>
+          </div>
+        </div>
+      </section>
+
       <h2>Pesquisar Paleta</h2>
       <div class="paleta-escolhida-espaco">
           <div id="paleta-escolhida-input-espaco">
               <input type="number" id="idPaleta" placeholder="Digite o ID da paleta e clique em 'Escolher'"/>
-              <button id="idPaletaButton" onclick="findPaletaById()">ESCOLHER</button>
+              <button class="defaut-button" onclick="findPaletaById()">ESCOLHER</button>
           </div>
           <div id="paletaEscolhida">
 
