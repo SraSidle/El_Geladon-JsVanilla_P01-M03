@@ -52,7 +52,6 @@ function abrirModalCadastro() {
 
 function fecharModalCadastro() {
   document.querySelector(".modal-overlay").style.display = "none";
-
   document.querySelector("#sabor").value = "";
   document.querySelector("#preco").value = 0;
   document.querySelector("#descricao").value = "";
@@ -66,6 +65,7 @@ async function createPaleta() {
   const foto = document.querySelector("#foto").value;
 
   const paleta = {
+    id,
     sabor,
     preco,
     descricao,
