@@ -8,7 +8,8 @@ async function findAllPaletas() {
   paletas.forEach((paleta) => {
     document.getElementById("paletaList").insertAdjacentHTML(
       "beforeend",
-      `<div class="PaletaListaItem">
+      `<div class="PaletaListaItem" id="PaletaListaItem_${paleta.id}"><div>
+      <div class="PaletaListaItem">
         <div>
             <div class="PaletaListaItem_sabor">${paleta.sabor}</div>
             <div class="PaletaListaItem_preco">R$ ${paleta.preco.toFixed(
@@ -24,12 +25,12 @@ async function findAllPaletas() {
   });
 }
 
+findAllPaletas();
+
 async function findPaletaById() {
   const id = document.getElementById("idPaleta").value;
   const response = await fetch(`${baseUrl}/find-paleta/${id}`);
   const paleta = await response.json();
-  console.log(response);
-  console.log(paleta);
 
   const paletaEscolhidaDiv = document.getElementById("paletaEscolhida");
 
@@ -44,8 +45,6 @@ async function findPaletaById() {
       } alt=${`Paleta de ${paleta.sabor}`} />
   </div>`;
 }
-
-findAllPaletas();
 
 function abrirModalCadastro() {
   document.querySelector(".modal-overlay").style.display = "flex";
