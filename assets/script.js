@@ -1,6 +1,5 @@
-const baseUrl =
-  "https://el-geladon-backend-by-ip.herokuapp.com/paletas";
-// const baseUrl = "http://localhost:3000";
+const baseUrl = "https://el-geladon-backend-by-ip.herokuapp.com/paletas";
+
 async function findAllPaletas() {
   const response = await fetch(`${baseUrl}/find-paletas`);
 
