@@ -5,33 +5,35 @@ async function findAllPaletas() {
 
   const paletas = await response.json();
 
-  paletas.forEach((paleta) => {
+  paletas.map((paleta) => {
     document.getElementById("paletaList").insertAdjacentHTML(
       "beforeend",
       `<div class="PaletaListaItem" id="PaletaListaItem_${paleta.id}"><div>
-       <div class="PaletaListaItem">
+        <div class="PaletaListaItem">
           <div>
-              <div class="PaletaListaItem__sabor">${paleta.sabor}</div>
+             <div class="PaletaListaItem__sabor">${paleta.sabor}</div>
               <div class="PaletaListaItem__preco">R$ ${paleta.preco.toFixed(
                 2
-              )}</div>
+                )}</div>
               <div class="PaletaListaItem__descricao">${paleta.descricao}</div>
-              <div class="PaletaListaItem__acoes Acoes">
+            <div class="PaletaListaItem__acoes Acoes">
               <button class="Acoes__editar" onclick="editPaleta(${
                 paleta.id
               })">editar</button>
               <button class="Acoes__deletar" onclick="deletePaleta(${
                 paleta.id
               })">deletar</button>
-            </div>
-            </div>
+          </div>
+        </div>
               <img class="PaletaListaItem__foto" src=${
                 paleta.foto
               } alt=${`Paleta de ${paleta.sabor}`} />
-          </div>`
+      </div>`
     );
   });
 }
+  // })paletas.forEach((paleta) => { troca do forEach por map, pois 
+  // no react o map é mais adequado
 
 findAllPaletas();
 
