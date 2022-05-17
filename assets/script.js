@@ -45,7 +45,7 @@ async function findPaletaById() {
   paletaEscolhidaDiv.innerHTML = `<div class="PaletaCardItem">
       <div>
         <div class="PaletaCardItem__sabor">${paleta.sabor}</div>
-        <div class="PaletaCardItem__preco">R$ ${paleta.preco.toFixed(2)}</div>
+        <div class="PaletaCardItem__preco">R$ ${paleta.preco}</div>
         <div class="PaletaCardItem__descricao">${paleta.descricao}</div>
       </div>
         <img class="PaletaCardItem__foto" src=${
