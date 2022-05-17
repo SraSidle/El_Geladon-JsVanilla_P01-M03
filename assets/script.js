@@ -35,7 +35,7 @@ async function findAllPaletas() {
 
 findAllPaletas();
 
-const findPaletaById = async () => {
+async function findPaletaById() {
   const id = document.getElementById("idPaleta").value;
   const response = await fetch(`${baseUrl}/find-paleta/${id}`);
   const paleta = await response.json();
