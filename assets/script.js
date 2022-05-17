@@ -6,7 +6,7 @@ async function findAllPaletas() {
   const paletas = await response.json();
 
   paletas.map((paleta) => {
-    document.getElementById("paletaList").insertAdjacentHTML(
+   return document.getElementById("paletaList").insertAdjacentHTML(
       "beforeend",
       `<div class="PaletaListaItem" id="PaletaListaItem_${paleta.id}"><div>
         <div class="PaletaListaItem">
