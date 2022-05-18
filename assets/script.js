@@ -8,13 +8,11 @@ async function findAllPaletas() {
   paletas.map((paleta) => {
    return document.getElementById("paletaList").insertAdjacentHTML(
       "beforeend",
-      `<div class="PaletaListaItem" id="PaletaListaItem_${paleta.id}"><div>
+      `<div class="PaletaListaItem" id="PaletaListaItem_'${paleta.id}'"><div>
         <div class="PaletaListaItem">
           <div>
              <div class="PaletaListaItem__sabor">${paleta.sabor}</div>
-              <div class="PaletaListaItem__preco">R$ ${paleta.preco.toFixed(
-                2
-                )}</div>
+              <div class="PaletaListaItem__preco">R$ ${paleta.preco}</div>
               <div class="PaletaListaItem__descricao">${paleta.descricao}</div>
             <div class="PaletaListaItem__acoes Acoes">
               <button class="Acoes__editar" onclick="editPaleta(${
@@ -39,7 +37,7 @@ findAllPaletas();
 
 async function findPaletaById() {
   const id = document.getElementById("idPaleta").value;
-  const response = await fetch(`${baseUrl}/find-paleta/${id}`);
+  const response = await fetch(`${baseUrl}/find-paleta/"${id}"`);
   const paleta = await response.json();
 
   const paletaEscolhidaDiv = document.getElementById("paletaEscolhida");
@@ -196,7 +194,7 @@ const editPaleta = async (id) => {
 };
 
 const deletePaleta = async (id) => {
-  const response = await fetch(`${baseUrl}/delete/${id}`, {
+  const response = await fetch(`${baseUrl}/delete/"${id}"`, {
     method: "delete",
     headers: {
       "Content-Type": "application/json",
