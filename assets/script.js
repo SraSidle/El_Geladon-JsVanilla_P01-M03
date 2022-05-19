@@ -1,137 +1,79 @@
 const baseUrl = "https://el-geladon-backend-by-ip.herokuapp.com/paletas";
 
-// async function findAllPaletas() {
-//   const response = await fetch(`${baseUrl}/find-paletas`);
-//   const paletas = await response.json();
-
-//   console.log(`Response: ${response}`);
-//   console.log(`Paletas: ${paletas}`);
-
-//   paletas.map((paleta) => {
-//     return document.getElementById("paletaList").insertAdjacentHTML(
-//       "beforeend",
-//       `<div class="PaletaListaItem" id="PaletaListaItem_'${paleta.id}'"><div>
-//         <div class="PaletaListaItem">
-//           <div>
-//              <div class="PaletaListaItem__sabor">${paleta.sabor}</div>
-//               <div class="PaletaListaItem__preco">R$ ${paleta.preco}</div>
-//               <div class="PaletaListaItem__descricao">${paleta.descricao}</div>
-//             <div class="PaletaListaItem__acoes Acoes">
-//               <button class="Acoes__editar" onclick="editPaleta(${
-//                 paleta.id
-//               })">editar</button>
-//               <button class="Acoes__deletar" onclick="deletePaleta(${
-//                 paleta.id
-//               })">deletar</button>
-//           </div>
-//         </div>
-//               <img class="PaletaListaItem__foto" src=${
-//                 paleta.foto
-//               } alt=${`Paleta de ${paleta.sabor}`} />
-//       </div>`
-//     );
-//   });
-// }
-// })paletas.forEach((paleta) => { troca do forEach por map, pois
-// no react o map é mais adequado
-
 async function findAllPaletas() {
+  const response = await fetch(`${baseUrl}/find-paletas`); // https://el-geladon-backend-by-ip.herokuapp.com/paletas/find-paletas
+  const paletas = await response.json();
 
-  const response = await fetch(`${baseUrl}/find-paletas`) // https://el-geladon-backend-by-ip.herokuapp.com/paletas/find-paletas
-  
-  console.log("response:", response)
+// console.log("Response" , response) // => Utilizar essa grafia, e não o template string: ${`Response: ${response}`}
+// console.log("paletas:" , paletas)
 
-  const paletas = await response.json()
-  console.log("paletas:", paletas)
-
-  // 1. Selecionar o elemento html que eu quero modificar (seletores)
-  // getElementById("paletaList")
-  // querySelector("#paletaList")
-  // querySelectoAll(PaletaListItem)
-  const paletaDivElement = document.getElementById("paletaList")
-
-  // console.log("paletaDivElement", paletaDivElement)
-
-  // *****Exibir apenas uma paleta na tela 
-  // paletaDivElement.insertAdjacentHTML("beforeend", 
-  //     ` 
-  //     <div class="PaletaListaItem">
-  //         <div>
-  //             <div class="PaletaListaItem__sabor">${paletas[3].sabor}</div>
-  //             <div class="PaletaListaItem__preco">R$ ${paletas[3].preco},00</div>
-  //             <div class="PaletaListaItem__descricao">${paletas[3].descricao}</div>
-  //         </div>
-  //         <img class="PaletaListaItem__foto" src=${paletas[3].foto} alt="Paleta de Doce de Leite" />
-  //     </div>
-  //     `
-  //     ) 
-
-  // *****Exibir a lista 
-  // 1. com o FOR
-  // for (let i = 0; i<paletas.length; i++){
-  //     // console.log(i, paletas[i]['descricao'])
-
-  //     // 2. Alteração que eu quero 
-  //         // acrescentar um porçao de código que representa cada card de cada paleta 
-
-  //         // pra inserir uma porção de código, podemos utilizar o insertAdjacentHTML, que recebe 2 argumentos
-  //     paletaDivElement.insertAdjacentHTML("beforeend", 
-  //     ` 
-  //     <div class="PaletaListaItem">
-  //         <div>
-  //             <div class="PaletaListaItem__sabor">${paletas[i].sabor}</div>
-  //             <div class="PaletaListaItem__preco">R$ ${paletas[i].preco},00</div>
-  //             <div class="PaletaListaItem__descricao">${paletas[i].descricao}</div>
-  //         </div>
-  //         <img class="PaletaListaItem__foto" src=${paletas[i].foto} alt="Paleta de Doce de Leite" />
-  //     </div>
-  //     `
-  //     ) 
-  // }
-
-  // 2. FOREACH => exemplo apostila // FOROF
-
-  // 3. MAP
-  paletas.map(function(batata) {
-      return document.getElementById("paletaList").insertAdjacentHTML("beforeend", 
+   paletas.map((paleta) => {
+    return document.getElementById("paletaList").insertAdjacentHTML(
+      "beforeend",
       `
-      <div class="PaletaListaItem">
-          <div>
-              <div class="PaletaListaItem__sabor">${batata.sabor}</div>
-              <div class="PaletaListaItem__preco">R$ ${batata.preco},00</div>
-              <div class="PaletaListaItem__descricao">${batata.descricao}</div>
+      <div class="PaletaListaItem" id="PaletaListaItem_'${paleta.id}'">
+        <div>
+          <div class="PaletaListaItem">
+            <div>
+              <div class="PaletaListaItem__sabor">${paleta.sabor}</div>
+              <div class="PaletaListaItem__preco">R$ ${paleta.preco}</div>
+              <div class="PaletaListaItem__descricao">${paleta.descricao}</div>
+              <div class="PaletaListaItem__acoes Acoes">
+                <button
+                  class="Acoes__editar"
+                  onclick="editPaleta(${
+                   paleta.id
+                })"
+                >
+                  editar
+                </button>
+                <button
+                  class="Acoes__deletar"
+                  onclick="deletePaleta(${
+                  paleta.id
+                })"
+                >
+                  deletar
+                </button>
+              </div>
+            </div>
+            <img
+              class="PaletaListaItem__foto"
+              src="${
+              paleta.foto
+              }"
+              alt="${`Paleta"
+              de
+              ${paleta.sabor}`}
+            />
           </div>
-          <img class="PaletaListaItem__foto" src=${batata.foto} alt="Paleta de ${batata.sabor}" />
+        </div>
       </div>
-      `
-      )
-  })
+      `  
+    );
+  });
 }
-
-
 
 // Read One
 async function findOnePaleta() {
-
   // 1. Selecionar o elemento html que eu quero modificar (seletores)
-  const inputElement = document.querySelector("#idPaleta")
-  console.log("inputElement", inputElement)
+  const inputElement = document.querySelector("#idPaleta");
+  console.log("inputElement", inputElement);
 
-  const id = inputElement.value
+  const id = inputElement.value;
 
-  console.log("id", id)
+  console.log("id", id);
 
-  const response = await fetch(`${baseUrl}/find-paleta/${id}`) 
-  
-  const paleta = await response.json()
-  console.log("paleta:", paleta)
+  const response = await fetch(`${baseUrl}/find-paleta/${id}`);
 
-  const divPaletaEscolhidaElement = document.getElementById("paletaEscolhida")
+  const paleta = await response.json();
+  console.log("paleta:", paleta);
 
-  console.log("divPaletaEscolhidaElement", divPaletaEscolhidaElement)
+  const divPaletaEscolhidaElement = document.getElementById("paletaEscolhida");
 
-  divPaletaEscolhidaElement.innerHTML = 
-      ` 
+  console.log("divPaletaEscolhidaElement", divPaletaEscolhidaElement);
+
+  divPaletaEscolhidaElement.innerHTML = ` 
       <div class="PaletaListaItem">
           <div>
               <div class="PaletaListaItem__sabor">${paleta.sabor}</div>
@@ -140,7 +82,7 @@ async function findOnePaleta() {
           </div>
           <img class="PaletaListaItem__foto" src=${paleta.foto} alt="Paleta de Doce de Leite" />
       </div>
-      `
+      `;
 }
 
 findAllPaletas();
