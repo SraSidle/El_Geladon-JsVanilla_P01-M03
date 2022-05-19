@@ -1,13 +1,14 @@
 const baseUrl = "https://el-geladon-backend-by-ip.herokuapp.com/paletas";
 
 async function findAllPaletas() {
-  const response = await fetch(`${baseUrl}/find-paletas`); // https://el-geladon-backend-by-ip.herokuapp.com/paletas/find-paletas
+  const response = await fetch(`${baseUrl}/find-paletas`); 
+  // https://el-geladon-backend-by-ip.herokuapp.com/paletas/find-paletas
   const paletas = await response.json();
-
 // console.log("Response" , response) // => Utilizar essa grafia, e não o template string: ${`Response: ${response}`}
-// console.log("paletas:" , paletas)
 
-   paletas.map((paleta) => {
+ console.log("paletas:" , paletas) // para facilitar a correção, este console.log, está presente
+
+  paletas.map((paleta) => {
     return document.getElementById("paletaList").insertAdjacentHTML(
       "beforeend",
       `
@@ -21,17 +22,13 @@ async function findAllPaletas() {
               <div class="PaletaListaItem__acoes Acoes">
                 <button
                   class="Acoes__editar"
-                  onclick="editPaleta(${
-                   paleta.id
-                })"
+                  onclick="editPaleta(${paleta.id})"
                 >
                   editar
                 </button>
                 <button
                   class="Acoes__deletar"
-                  onclick="deletePaleta(${
-                  paleta.id
-                })"
+                  onclick="deletePaleta(${paleta.id})"
                 >
                   deletar
                 </button>
@@ -39,9 +36,7 @@ async function findAllPaletas() {
             </div>
             <img
               class="PaletaListaItem__foto"
-              src="${
-              paleta.foto
-              }"
+              src="${paleta.foto}"
               alt="${`Paleta"
               de
               ${paleta.sabor}`}
@@ -49,60 +44,32 @@ async function findAllPaletas() {
           </div>
         </div>
       </div>
-      `  
+      `
     );
   });
-}
-
-// Read One
-async function findOnePaleta() {
-  // 1. Selecionar o elemento html que eu quero modificar (seletores)
-  const inputElement = document.querySelector("#idPaleta");
-  console.log("inputElement", inputElement);
-
-  const id = inputElement.value;
-
-  console.log("id", id);
-
-  const response = await fetch(`${baseUrl}/find-paleta/${id}`);
-
-  const paleta = await response.json();
-  console.log("paleta:", paleta);
-
-  const divPaletaEscolhidaElement = document.getElementById("paletaEscolhida");
-
-  console.log("divPaletaEscolhidaElement", divPaletaEscolhidaElement);
-
-  divPaletaEscolhidaElement.innerHTML = ` 
-      <div class="PaletaListaItem">
-          <div>
-              <div class="PaletaListaItem__sabor">${paleta.sabor}</div>
-              <div class="PaletaListaItem__preco">R$ ${paleta.preco},00</div>
-              <div class="PaletaListaItem__descricao">${paleta.descricao}</div>
-          </div>
-          <img class="PaletaListaItem__foto" src=${paleta.foto} alt="Paleta de Doce de Leite" />
-      </div>
-      `;
 }
 
 findAllPaletas();
 
 async function findPaletaById() {
   const id = document.getElementById("idPaleta").value;
-  const response = await fetch(`${baseUrl}/find-paleta/"${id}"`);
+  const response = await fetch(`${baseUrl}/find-paleta/${id}`); //Apesar de ser string, o id entre aspas dá undefined
   const paleta = await response.json();
 
   const paletaEscolhidaDiv = document.getElementById("paletaEscolhida");
 
-  paletaEscolhidaDiv.innerHTML = `<div class="PaletaCardItem">
+  paletaEscolhidaDiv.innerHTML = `<div class="PaletaListaItem">
       <div>
-        <div class="PaletaCardItem__sabor">${paleta.sabor}</div>
-        <div class="PaletaCardItem__preco">R$ ${paleta.preco}</div>
-        <div class="PaletaCardItem__descricao">${paleta.descricao}</div>
+        <div class="PaletaListaItem__sabor">${paleta.sabor}</div>
+        <div class="PaletaListaItem__preco">R$ ${paleta.preco}</div>
+        <div class="PaletaListaItem__descricao">${paleta.descricao}</div>
       </div>
-        <img class="PaletaCardItem__foto" src=${
-          paleta.foto
-        } alt=${`Paleta de ${paleta.sabor}`} />
+        <img
+          class="PaletaListaItem__foto"
+          src=${
+           paleta.foto
+         }
+        alt=${`Paleta de ${paleta.sabor}`} />
     </div>`;
 }
 
