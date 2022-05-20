@@ -14,25 +14,33 @@ async function findAllPaletas() {
       `
       <div class="PaletaListaItem" id="PaletaListaItem_'${paleta.id}'">
         <div>
+        <div class="dropdown">
+        <div class="dropdown-button">
+          <i class="bi bi-three-dots-vertical"></i>
+        </div>
+    
+        <div class="dropdown-content">
+        <div class="PaletaListaItem__acoes Acoes">
+        <button
+          class="Acoes__editar"
+          onclick="editPaleta('${paleta._id}')"
+        >
+          editar
+        </button>
+        <button
+          class="Acoes__deletar"
+          onclick="deletePaleta('${paleta._id}')"
+        >
+          deletar
+        </button>
+        </div>
+      </div>
           <div class="PaletaListaItem">
             <div>
               <div class="PaletaListaItem__sabor">${paleta.sabor}</div>
               <div class="PaletaListaItem__preco">R$ ${paleta.preco}</div>
               <div class="PaletaListaItem__descricao">${paleta.descricao}</div>
-              <div class="PaletaListaItem__acoes Acoes">
-                <button
-                  class="Acoes__editar"
-                  onclick="editPaleta('${paleta._id}')"
-                >
-                  editar
-                </button>
-                <button
-                  class="Acoes__deletar"
-                  onclick="deletePaleta('${paleta._id}')"
-                >
-                  deletar
-                </button>
-              </div>
+
             </div>
             <img
               class="PaletaListaItem__foto"
