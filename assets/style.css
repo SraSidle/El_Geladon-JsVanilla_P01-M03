@@ -14,11 +14,11 @@ html {
 .Home {
   position: relative;
   background-image: radial-gradient(
-    farthest-corner at 40px 40px,
+    farthest-corner at 2.5rem 2.5rem,
     #50c5ee 60%,
     rgba(0, 212, 255, 0.5) 100%
   );
-  min-height: calc(100vh - 60px);
+  min-height: calc(100vh - 3.75rem);
   margin: 15px;
   padding: 15px;
   border-radius: 20px;
