@@ -22,13 +22,13 @@ async function findAllPaletas() {
               <div class="PaletaListaItem__acoes Acoes">
                 <button
                   class="Acoes__editar"
-                  onclick="editPaleta(${paleta.id})"
+                  onclick="editPaleta('${paleta.id}')"
                 >
                   editar
                 </button>
                 <button
                   class="Acoes__deletar"
-                  onclick="deletePaleta(${paleta.id})"
+                  onclick="deletePaleta('${paleta.id}')"
                 >
                   deletar
                 </button>
@@ -123,29 +123,29 @@ async function createPaleta() {
 
     const novaPaleta = await response.json();
 
-    const html = `<div class="PaletaListaItem" id="PaletaListaItem_${
-      novaPaleta.id
-    }">
+    const html = `<div class="PaletaListaItem" id="PaletaListaItem_'${
+      novaPaleta._id
+    }'">
     
-        <div class="PaletaListaItem__sabor">${novaPaleta.sabor}</div>
-        <div class="PaletaListaItem__preco">R$ ${novaPaleta.preco.toFixed(
+        <div class="PaletaListaItem__sabor">'${novaPaleta.sabor}'</div>
+        <div class="PaletaListaItem__preco">R$' ${novaPaleta.preco.toFixed(
           2
-        )}</div>
-        <div class="PaletaListaItem__descricao">${novaPaleta.descricao}</div>
+        )}'</div>
+        <div class="PaletaListaItem__descricao">'${novaPaleta.descricao}'</div>
   
         <div class="PaletaListaItem__acoes Acoes">
-          <button class="Acoes__editar" onclick="editPaleta(${
-            novaPaleta.id
-          })">editar</button>
-          <button class="Acoes__deletar" onclick="deletePaleta(${
-            novaPaleta.id
-          })">deletar</button>
+          <button class="Acoes__editar" onclick="editPaleta('${
+            novaPaleta._id
+          }')">editar</button>
+          <button class="Acoes__deletar" onclick="deletePaleta('${
+            novaPaleta._id
+          }')">deletar</button>
         </div>
     
       </div>
         <img class="PaletaListaItem__foto" src=${
           novaPaleta.foto
-        } alt=${`Paleta de ${novaPaleta.sabor}`} />
+        } alt='${`Paleta de ${novaPaleta.sabor}`}' />
     </div>`;
 
     document.getElementById("paletaList").insertAdjacentHTML("beforeend", html);
@@ -168,31 +168,31 @@ async function createPaleta() {
 
   const novaPaleta = await response.json();
 
-  const html = `<div class="PaletaListaItem" id="PaletaListaItem_${
-    novaPaleta.id
-  }">
+  const html = `<div class="PaletaListaItem" id="PaletaListaItem_'${
+    novaPaleta._id
+  }'">
     <div>
-      <div class="PaletaListaItem__sabor">${novaPaleta.sabor}</div>
-      <div class="PaletaListaItem__preco">R$ ${novaPaleta.preco.toFixed(
+      <div class="PaletaListaItem__sabor">'${novaPaleta.sabor}'</div>
+      <div class="PaletaListaItem__preco">R$ '${novaPaleta.preco.toFixed(
         2
-      )}</div>
-      <div class="PaletaListaItem__descricao">${novaPaleta.descricao}</div>
+      )}'</div>
+      <div class="PaletaListaItem__descricao">'${novaPaleta.descricao}'</div>
       <div class="PaletaListaItem__acoes Acoes">
-      <button class="Acoes__editar" onclick="editPaleta(${
-        novaPaleta.id
-      })">editar</button>
-      <button class="Acoes__deletar" onclick="deletePaleta(${
-        novaPaleta.id
-      })">deletar</button>
+      <button class="Acoes__editar" onclick="editPaleta('${
+        novaPaleta._id
+      }')">editar</button>
+      <button class="Acoes__deletar" onclick="deletePaleta('${
+        novaPaleta._id
+      }')">deletar</button>
     </div>
     </div>
       <img class="PaletaListaItem__foto" src=${
         novaPaleta.foto
-      } alt=${`Paleta de ${novaPaleta.sabor}`} />
+      } alt='${`Paleta de ${novaPaleta.sabor}`}' />
     </div>`;
 
   if (modoEdicaoAtivado) {
-    document.getElementById(`PaletaListaItem_${id}`).outerHTML = html;
+    document.getElementById(`PaletaListaItem_'${id}'`).outerHTML = html;
   } else {
     document.getElementById("paletaList").insertAdjacentHTML("beforeend", html);
   }
@@ -213,7 +213,7 @@ const editPaleta = async (id) => {
 };
 
 const deletePaleta = async (id) => {
-  const response = await fetch(`${baseUrl}/delete/"${id}"`, {
+  const response = await fetch(`${baseUrl}/delete/${id}`, {
     method: "delete",
     headers: {
       "Content-Type": "application/json",
