@@ -36,28 +36,13 @@
               </div>
             </div>
           </div>
-
-          <div class="paleta-escolhida-espaco">
-            <h2>Pesquisar Paleta</h2>
-            <div id="paleta-escolhida-input-espaco">
-              <input
-                type="text"
-                id="idPaleta"
-                placeholder="Digite o ID da paleta e clique na Lupa"
-              />
-              <button id="idPaletaButton" onclick="findPaletaById()">
-                <i class="bi bi-search"></i>
-              </button>
-            </div>
-            <div id="paletaEscolhida"></div>
-          </div>
           <section class="button-modal-create">
             <button
               type="button"
               class="default-button"
               onclick="abrirModalCadastro()"
             >
-              Cadastrar Paleta
+            Cadastrar Paleta
             </button>
           </section>
         </header>
@@ -100,6 +85,21 @@
             </div>
           </div>
         </section>
+
+          <div class="paleta-escolhida-espaco">
+            <h2>Pesquisar Paleta</h2>
+            <div id="paleta-escolhida-input-espaco">
+              <input
+                type="text"
+                id="idPaleta"
+                placeholder="Digite o ID da paleta e clique na Lupa"
+              />
+              <button id="idPaletaButton" onclick="findPaletaById()">
+                <i class="bi bi-search"></i>
+              </button>
+            </div>
+            <div id="paletaEscolhida"></div>
+          </div>
         <h2>Paletas Disponíveis:</h2>
         <div class="Home__container">
           <div class="PaletaLista" id="paletaList"></div>
