@@ -71,7 +71,7 @@ html {
 .PaletaCardItem,
 .PaletaListaItem {
   font-family: "Exo";
-  background: rgba(255, 255, 255, 0.3);
+  background: #fcb4f64d;
   border-radius: 10px;
   margin-top: 1rem;
   padding: 10px;
@@ -123,6 +123,12 @@ html {
   margin-right: -60px;
 }
 
+div .paleta-escolhida-espaco > h2{
+  text-align: center;
+  margin-top: 1rem;
+  width: 100%;
+}
+
 .paleta-escolhida-espaco {
   display: flex;
   flex-direction: column;
@@ -131,6 +137,7 @@ html {
 }
 
 #idPaleta {
+  width: 100%;
   padding: 0.5rem;
   width: 315px;
   border: none;
@@ -140,12 +147,12 @@ html {
 #idPaletaButton {
   background-color: transparent;
   border: 2px solid #9400d3;
-  padding: 0.4rem;
+  padding: 0.3rem;
+  margin-left: 5px;
   color: #9400d3;
   font-weight: 600;
   border-radius: 0.2rem;
-  width: 330px;
-  margin-top: 0.5rem;
+  width: 40px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   font-size: 1rem;
@@ -153,12 +160,14 @@ html {
 
 #idPaletaButton:hover {
   background-color: #9400d3;
+  transform: scale(1.1);
   color: #ffffff;
 }
 
 #paleta-escolhida-input-espaco {
   display: flex;
-  flex-direction: column;
+  flex-direction:row;
+  justify-content: center;
   align-items: center;
   width: 100%;
 }
@@ -249,8 +258,9 @@ html {
     font-size: 1.5em;
   }
 }
+
 .default-button {
-  position: absolute;
+  /* position: absolute; */
   top: 92px;
   background-color: transparent;
   border: 2px solid #9400d3;
@@ -365,6 +375,8 @@ textarea {
 .button-modal-create {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+  margin-bottom: auto;
 }
 
 @media (max-width: 990px) {
