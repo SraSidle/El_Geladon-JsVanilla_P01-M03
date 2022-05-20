@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css?family=Exo:400,700");
+
+body,
+html {
+  width: 100%;
+  min-height: 100vh;
+  overflow: auto;
+  margin: 0;
+  padding: 0;
+  font-family: 'Exo', sans-serif;
+}
+
+header{
+    background-color: #ff47c280;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+}
+.Home__container {
+  background-image: radial-gradient(
+    farthest-corner at 2.5rem 2.5rem,
+    #50c5ee 60%,
+    #00d4ff80 100%
+  );
+  min-height: calc(100vh - 3.75rem);
+  margin: 15px;
+  padding: 15px;
+  border-radius: 20px;
+  color: black;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+}
+
+.Home__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.row {
+    display: flex;
+
+    justify-content: space-between;
+    margin: 20px 0 35px 0;
+  }
+
+  .Logo {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    width: 340px;
+    height: 45px;
+  }
+  
+  .Logo__titulo {
+    position: absolute;
+    left: 55px;
+    font-family: "Exo";
+    font-weight: 700;
+    font-size: 2.5em;
+  }
+  .Logo__icone {
+    position: absolute;
+    left: -20px;
+    top: -15px;
+  }
+  
+  .Sacola {
+    position: relative;
+  }
+  
+  .Sacola__icone {
+    cursor: pointer;
+  }
+
+.PaletaLista {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 25px 50px;
+}
+
+@media (max-width: 1220px) {
+  .PaletaLista {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 840px) {
+  .PaletaLista {
+    grid-template-columns: 1fr;
+  }
+}
+
+.PaletaCardItem,
+.PaletaListaItem {
+  font-family: "Exo";
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  margin-top: 1rem;
+  padding: 10px;
+  width: 315px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.PaletaCardItem {
+  margin: 20px 0;
+  height: 150px;
+  width: auto;
+}
+
+.PaletaCardItem__sabor,
+.PaletaListaItem__sabor {
+  font-size: 1.5em;
+  font-weight: 700;
+  line-height: 100%;
+}
+
+.PaletaCardItem__descricao,
+.PaletaListaItem__descricao {
+  font-size: 0.85em;
+}
+
+.PaletaCardItem__preco,
+.PaletaListaItem__preco {
+  color: darkviolet;
+}
+
+.PaletaListaItem__foto {
+  height: 150px;
+  margin-right: -60px;
+}
