@@ -123,7 +123,7 @@ html {
   margin-right: -60px;
 }
 
-div .paleta-escolhida-espaco > h2{
+div .paleta-escolhida-espaco > h2 {
   text-align: center;
   margin-top: 1rem;
   width: 100%;
@@ -166,7 +166,7 @@ div .paleta-escolhida-espaco > h2{
 
 #paleta-escolhida-input-espaco {
   display: flex;
-  flex-direction:row;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -260,7 +260,7 @@ div .paleta-escolhida-espaco > h2{
 }
 
 .default-button {
-  /* position: absolute; */
+  /* position: absolute;//  tem afetado a responsividade por se sobrepor ao pesquisar paleta nas dimensões abixo de 900px*/
   top: 92px;
   background-color: transparent;
   border: 2px solid #9400d3;
@@ -324,8 +324,8 @@ div .paleta-escolhida-espaco > h2{
   text-decoration: none;
   color: #000000;
   font-size: 1.5rem;
-  transform: scale(0.7);
-  transition: 0.3s ease-in-out;
+  transform: scale(0.9);
+  transition: 0.5s ease-in-out;
   cursor: pointer;
 }
 
@@ -380,17 +380,44 @@ textarea {
 }
 
 @media (max-width: 990px) {
-.button-modal-create{
-  justify-content: center;
+  .button-modal-create {
+    justify-content: center;
+  }
 }
+
+.dropdown-content {
+  position: relative;
 }
+
+.dropdown-button {
+  display: flex;
+  justify-content: flex-end;
+  box-shadow: inset 0 0 1rem 0.2rem #ffffff33, 0 0 1rem 0.2rem #ffffff33;
+  cursor: pointer;
+  border-radius: 1rem;
+}
+
+.dropdown-button {
+  transition: ease-in-out;
+  border: none;
+  background-color: transparent;
+  width: 24px;
+
+  margin: 0.2rem;
+}
+
+.dropdown-button:hover {
+  transform: scale(1.05);
+}
+
 .Acoes {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
 }
 
 .Acoes__editar,
 .Acoes__deletar {
+  position: absolute;
   border: none;
   color: white;
   border-radius: 5px;
@@ -401,15 +428,23 @@ textarea {
   font-weight: 700;
   text-transform: uppercase;
   cursor: pointer;
-  width: 48%;
+  transition: ease-in-out;
+  width: 7rem;
+  background-color: rgba(190, 30, 210, 0.5);
 }
 
 .Acoes__editar {
-  background-color: blue;
-  width: 100%;
+  left: 2rem;
 }
 
 .Acoes__deletar {
-  background-color: red;
-  width: 100%;
+  left: 9rem;
+}
+
+.Acoes__editar:hover,
+.Acoes__deletar:hover {
+  transform: scale(1.05);
+  background-color: rgba(190, 30, 210, 0.95);
+  box-shadow: inset 0 0 1rem 0.2rem rgba(190, 30, 210, 1),
+    0 0 1rem 0.2rem #909090aa;
 }
