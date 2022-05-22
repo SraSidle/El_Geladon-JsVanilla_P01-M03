@@ -12,14 +12,15 @@ async function findAllPaletas() {
     return document.getElementById("paletaList").insertAdjacentHTML(
       "beforeend",
       `
-      <div class="PaletaListaItem" id="PaletaListaItem_'${paleta.id}'">
+      <div class="PaletaListaItem" id="PaletaListaItem_'${paleta._id}'">
         <div>
         <div class="dropdown">
-        <div class="dropdown-button">
-          <i class="bi bi-three-dots-vertical"></i>
+        <div class="dropdown-button" onclick="viewDropdown()";>
+            <i class="bi bi-three-dots-vertical"></i>
         </div>
     
-        <div class="dropdown-content">
+    <div class="dropdown-content"
+        style="display: none " >
         <div class="PaletaListaItem__acoes Acoes">
         <button
           class="Acoes__editar"
@@ -40,7 +41,6 @@ async function findAllPaletas() {
               <div class="PaletaListaItem__sabor">${paleta.sabor}</div>
               <div class="PaletaListaItem__preco">R$ ${paleta.preco}</div>
               <div class="PaletaListaItem__descricao">${paleta.descricao}</div>
-
             </div>
             <img
               class="PaletaListaItem__foto"
@@ -58,6 +58,33 @@ async function findAllPaletas() {
 }
 
 findAllPaletas();
+
+function viewDropdown(){
+  const buttons = document.querySelectorAll(".dropdown-button");
+  buttons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      const content = event.path[2].children[1];
+      console.log(content);
+
+      content.classList.toggle("active");
+
+      if (content.classList.contains("active")) {
+        content.style.display = "block";
+      } else {
+        content.style.display = "none";
+      }
+
+      content.addEventListener("mouseleave", () => {
+        content.classList.remove("active");
+        if (!content.classList.contains("active")) {
+          content.style.display = "none";
+        }
+      });
+    });
+  });
+};
+
+viewDropdown();
 
 async function findPaletaById() {
   const id = document.getElementById("idPaleta").value;
@@ -107,7 +134,7 @@ async function createPaleta() {
     foto,
   };
 
-  const submitPaleta = async () => {
+async function submitPaleta(){
     const sabor = document.getElementById("sabor").value;
     const descricao = document.getElementById("descricao").value;
     const foto = document.getElementById("foto").value;
@@ -176,9 +203,9 @@ async function createPaleta() {
 
   const novaPaleta = await response.json();
 
-  const html = `<div class="PaletaListaItem" id="PaletaListaItem_${
+  const html = `<div class="PaletaListaItem" id="PaletaListaItem_'${
     novaPaleta._id
-  }">
+  }'">
     <div>
       <div class="PaletaListaItem__sabor">${novaPaleta.sabor}</div>
       <div class="PaletaListaItem__preco">R$ ${novaPaleta.preco.toFixed(
@@ -209,9 +236,23 @@ async function createPaleta() {
 }
 
 async function editPaleta(id){
-  const response = await fetch(`${baseUrl}/find-paleta/${id}`);
+  const paleta = {
+    sabor: sabor,
+    descricao: descricao,
+    foto: foto,
+    preco: preco,
+  };
 
-  const paleta = await response.json();
+  const response = await fetch(`${baseUrl}/update/${id}` , {
+    method: "put",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    mode: "cors",
+    body: '"teste": "teste"'
+  });
+
+   paleta = await response.json();
 
   document.getElementById("id").value = paleta.id;
   document.getElementById("sabor").value = paleta.sabor;
@@ -219,6 +260,10 @@ async function editPaleta(id){
   document.getElementById("foto").value = paleta.foto;
   document.getElementById("preco").value = paleta.preco;
 };
+
+// criar um modal pra editar em cima do layout da paleta estará no findallpaleta, substituindo o card...
+// exibir e ocultar ele com display: flex, none; editar, findall none e o outro flex
+// estilizar com CSS
 
 async function deletePaleta(id){
   const response = await fetch(`${baseUrl}/delete/${id}`, {
